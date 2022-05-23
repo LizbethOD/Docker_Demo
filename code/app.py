@@ -1,15 +1,13 @@
 import web
 
-urls = (
-    '/(.*)', 'hello'
-)
-app = web.application(urls, globals())
+urls = ( 
+    "/index", "templates.index.index",
+    "/docker", "templates.docker.docker",
+    "/ubuntu", "templates.ubuntu.ubuntu",
 
-class hello:
-    def GET(self, name):
-        if not name:
-            name = 'Liz'
-        return 'Hello, ' + name + '!'
+)
+
+app = web.application(urls, globals())
 
 if __name__ == "__main__":
     app.run()
